@@ -7,6 +7,7 @@ fn handle_client(mut stream: TcpStream) {
     while match stream.read(&mut data) {
         Ok(size) => {
             stream.write(&data[0..size]).unwrap();
+            println!("connection handled");
             true
         },
         Err(_) => {
